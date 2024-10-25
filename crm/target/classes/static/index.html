@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Senhas</title>
+    <script>
+        function emitirSenha(pacienteId) {
+            fetch(`/api/atendimentos/emitir-senha/${pacienteId}`, { method: 'POST' })
+                .then(response => response.json())
+                .then(data => alert('Sua senha é: ' + data.codigoAtendimento));
+        }
+    </script>
+</head>
+<body>
+<h1>Bem-vindo à Clínica</h1>
+<button onclick="emitirSenha(1)">Emitir Senha</button>
+</body>
+</html>

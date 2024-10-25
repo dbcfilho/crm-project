@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fila de Atendimento</title>
+</head>
+<body>
+<h1>Fila de Atendimento</h1>
+
+<button onclick="emitirSenha(1)">Emitir Senha</button>
+<button onclick="chamarProximo()">Chamar Próximo</button>
+
+<div id="atendimentoInfo"></div>
+
+<script>
+    function emitirSenha(pacienteId) {
+        fetch(`/atendimento/emitir/${pacienteId}`, {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("atendimentoInfo").innerText = "Senha emitida: " + data.senha;
+            });
+    }
+
+    function chamarProximo() {
+        fetch('/atendimento/chamarProximo', {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("atendimentoInfo").innerText = "Chamando senha: " + data.senha;
+            });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/CrmprojectApplication.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/controller/SenhaController.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/controller/SenhaWebSocketController.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/dto/SenhaRequest.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/model/Senha.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/repository/SenhaRepository.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/service/SenhaService.java
+/home/devbrum/Documentos/crmproject/src/main/java/com/example/crmproject/service/WebSocketConfig.java

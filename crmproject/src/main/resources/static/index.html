@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório de Senhas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-section, .right-section {
+            width: 48%;
+        }
+
+        .header, .footer {
+            text-align: center;
+            background-color: #be5b18;
+            color: #000000;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .main-info {
+            text-align: center;
+            background-color: #be5b18;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-info h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #2c0ba1;
+        }
+
+        .main-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .called-queue {
+            display: flex;
+            flex-direction: column;
+            background-color: #be5b18;
+            padding: 10px;
+            border: 1px solid #be5b18;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .called-queue div {
+            text-align: center;
+            padding: 5px;
+            color: #FFF;
+        }
+
+        .patient-info {
+            margin-bottom: 20px;
+            background-color: #F7F7F7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-info h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .patient-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .specialists {
+            display: flex;
+            justify-content: space-between;
+            background-color: #FFF;
+            padding: 10px;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+        }
+
+        .specialists div {
+            text-align: center;
+            flex: 1;
+        }
+
+        .specialists div p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #fdfdfd;
+        }
+
+        .input-section {
+            margin-top: 20px;
+        }
+
+        .input-section input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-section select {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-section button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #be5b18;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .input-section button:hover {
+            background-color: #a65c1c;
+        }
+
+        .right-section video {
+            display: block; /* Para permitir que a margem funcione */
+            margin: 0 auto;
+            border-radius: 8px;
+            width: 80%; /* ou ajuste para o tamanho desejado */
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p>Centro Médico TESTE</p>
+</div>
+<div class="container">
+    <div class="left-section">
+        <div class="main-info">
+            <h1 id="currentPassword">AB104</h1>
+            <p id="currentSpecialty">Guichê: 1</p>
+        </div>
+        <div class="called-queue" id="calledQueue">
+            <div><p>Fila de Senhas Chamadas:</p></div>
+        </div>
+        <div class="patient-info">
+            <h2>Paciente</h2>
+            <p><strong>Nome:</strong> Raphael Amaral</p>
+            <p><strong>Atendimento:</strong> Ortopedia</p>
+            <p><strong>Sala:</strong> 7</p>
+            <p><strong>Especialista:</strong> Dr. Elon Musk</p>
+        </div>
+
+        <button id="updateButton">Atualizar Informações</button>
+
+        <div class="input-section">
+            <h2>Quadro de Pacientes</h2>
+            <input type="text" id="paciente" placeholder="Nome do Paciente">
+            <input type="text" id="medico" placeholder="Atendimento">
+            <input type="text" id="sala" placeholder="Sala">
+            <input type="text" id="especialidade" placeholder="Especialidade">
+            <select id="guiche">
+                <option value="1">Guichê: 1</option>
+                <option value="2">Guichê: 2</option>
+                <option value="3">Guichê: 3</option>
+                <option value="4">Guichê: 4</option>
+            </select>
+            <button onclick="addPassword()">Cadastrar</button>
+            <button onclick="callNextPassword()">Chamar Próxima Senha</button>
+        </div>
+    </div>
+    <div class="right-section">
+        <video controls autoplay muted loop style="width: 100%; border-radius: 8px;">
+            <source src="/videos/video.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
+        <div class="specialists">
+            <div>
+                <p><strong>Sala: 4</strong></p>
+                <p>Isaac Newton</p>
+                <p>Cardiologia</p>
+            </div>
+            <div>
+                <p><strong>Sala: 6</strong></p>
+                <p>Albert Einstein</p>
+                <p>Neurologia</p>
+            </div>
+            <div>
+                <p><strong>Sala: 2</strong></p>
+                <p>Steve Jobs</p>
+                <p>Ortopedia</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p id="currentTime"></p>
+</div>
+
+<script>
+    // Função para atualizar a data e hora no rodapé
+    function updateTime() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.getElementById('currentTime').innerText = now.toLocaleString('pt-BR', options);
+    }
+
+    // Atualiza a hora imediatamente e a cada segundo
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+
+<script>
+    let passwordQueue = [];
+
+    function addPassword() {
+        const passwordInput = document.getElementById('paciente').value.trim();
+        const patientName = document.getElementById('medico').value.trim();
+        const specialty = document.getElementById('numero').value.trim();
+        const service = document.getElementById('especialidade').value.trim();
+        const room = document.getElementById('sala').value;
+
+        if (passwordInput && patientName && specialty && service && room) {
+            const passwordData = {
+                password: passwordInput,
+                name: patientName,
+                specialty: specialty,
+                service: service,
+                room: room
+            };
+            passwordQueue.push(passwordData);
+            document.getElementById('paciente').value = ''; // Limpa o campo de entrada
+            document.getElementById('medico').value = '';
+            document.getElementById('numero').value = '';
+            document.getElementById('especialidade').value = '';
+            updateQueueDisplay();
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+
+    function callNextPassword() {
+        if (passwordQueue.length > 0) {
+            const nextPassword = passwordQueue.shift();
+            document.getElementById('currentPassword').innerText = nextPassword.password;
+            document.getElementById('currentSpecialty').innerText = `Sala: ${nextPassword.room} | Especialidade: ${nextPassword.specialty}`;
+            updateQueueDisplay();
+            speakPassword(nextPassword);
+        } else {
+            alert('Não há senhas na fila.');
+        }
+    }
+
+    function updateQueueDisplay() {
+        const queueElement = document.getElementById('calledQueue');
+        queueElement.innerHTML = '<div><p>Fila de Senhas Chamadas:</p></div>';
+        passwordQueue.forEach(item => {
+            const queueItem = document.createElement('div');
+            queueItem.innerText = item.password;
+            queueElement.appendChild(queueItem);
+        });
+    }
+
+    function speakPassword(passwordData) {
+        const msg = new SpeechSynthesisUtterance(`Próxima senha chamada: ${passwordData.password}, atendimento em ${passwordData.specialty}`);
+        window.speechSynthesis.speak(msg);
+    }
+
+    // Configuração do WebSocket
+    const socket = new WebSocket('ws://localhost:8080/websocket'); // Substitua pela URL correta do seu WebSocket
+
+    socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        // Atualizar a fila de senhas com os dados recebidos do servidor
+        if (data.password) {
+            passwordQueue.push(data);
+            updateQueueDisplay();
+        }
+    };
+
+    document.getElementById('updateButton').addEventListener('click', () => {
+        // Chamar a função para atualizar as informações do paciente ou outro processamento necessário
+    });
+</script>
+</body>
+</html>

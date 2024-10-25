@@ -1,0 +1,9 @@
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/CrmApplication.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/controllers/AtendimentoController.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/controllers/HomeController.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/entities/Atendimento.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/entities/Paciente.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/exceptions/ResourceNotFoundException.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/repositories/AtendimentoRepository.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/repositories/PacienteRepository.java
+/home/devbrum/Documentos/crm/src/main/java/com/project/crm/services/AtendimentoService.java

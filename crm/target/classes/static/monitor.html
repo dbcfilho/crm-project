@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Chamada</title>
+    <script>
+        function atualizarMonitor() {
+            fetch('/api/atendimentos')
+                .then(response => response.json())
+                .then(atendimentos => {
+                    const lista = document.getElementById('lista');
+                    lista.innerHTML = '';
+                    atendimentos.forEach(atendimento => {
+                        const item = document.createElement('li');
+                        item.innerText = `${atendimento.codigoAtendimento} - ${atendimento.status}`;
+                        lista.appendChild(item);
+                    });
+                });
+        }
+
+        setInterval(atualizarMonitor, 5000); // Atualiza a cada 5 segundos
+    </script>
+</head>
+<body>
+<h1>Monitor de Chamada</h1>
+<ul id="lista"></ul>
+</body>
+</html>
